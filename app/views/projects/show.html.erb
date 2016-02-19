@@ -1,0 +1,17 @@
+<h1>Proejct: <%= @project.title %></h1>
+<p>Description: <%= @project.description %></p>
+<p>Due date: <%= @project.due_date %></p>
+<p>Created by: <%= @project.user.full_name %></p>
+  <%= link_to "Edit", edit_project_path %>
+  <%= link_to "Delete", project_path(@project),
+                        method: :delete,
+                        data: { confirm: "You Sure?" } %>
+  <%= link_to "Add", new_project_path %>
+<br>
+<hr>
+  <h2>Add Discussions</h2>
+  <%= render "discussion_form" %>
+<br>
+<hr>
+<h3>Add Tasks</h3>
+  <%= render "task_form" %>

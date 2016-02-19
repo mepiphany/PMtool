@@ -1,0 +1,38 @@
+<%= @task.errors.full_messages.join(",") %>
+<%= form_for [@project, @task] do |f| %>
+<div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+<div>
+  <%= f.label :due_date %>
+  <%= f.date_field :due_date %>
+
+</div>
+<%= f.submit  %>
+
+<% end %>
+<hr>
+<br>
+<h3>Incompleted Tasks</h3>
+<% @project.tasks.where("status = false").each do |task| %>
+  <p>Title: <%= task.title %></P>
+  <p>Due Date: <%= task.due_date.strftime("%Y-%b-%d") %></p>
+    <% if task.status == false %>
+      <%= button_to "Press to Complete", project_task_path(@project, task, {task: { status: true }}), method: :patch %></p>
+    <% else %>
+       <%= button_to "Press to Incomplete", project_task_path(@project, task, {task: { status: false }}), method: :patch %></p>
+    <% end %>
+      <%= button_to "Delete", project_task_path(@project, task), method: :delete %>
+    <% end %>
+<br>
+<h3>Completed Tasks</h3>
+<% @project.tasks.where("status = true").each do |task| %>
+<p><%= task.title %> <%= task.due_date.strftime("%Y-%b-%d") %>
+  <% if task.status == false %>
+    <%= button_to "Press to Complete", project_task_path(@project, task, {task: { status: true }}), method: :patch %></p>
+  <% else %>
+     <%= button_to "Press to Incomplete", project_task_path(@project, task, {task: { status: false }}), method: :patch %></p>
+  <% end %>
+    <%= button_to "Delete", project_task_path(@project, task), method: :delete %>
+  <% end %>

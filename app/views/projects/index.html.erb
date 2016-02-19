@@ -1,0 +1,9 @@
+<h1>Projects (<%= @projects.length %>)</h1>
+
+<% @projects.each do |name| %>
+<%= link_to name.title, project_path(name) %>
+<%= link_to "Delete", project_path(name),
+                      method: :delete,
+                      data: { confirm: "You Sure?" } %>
+<hr>
+<% end %>
