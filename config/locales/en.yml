@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  unauthorized:
+    create:
+      project: "To create a project you must sign in!"

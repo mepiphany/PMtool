@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
 
   def index
     @projects = Project.all
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project_params = params.require(:project).permit([:title, :description, :due_date])
+    project_params
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    project_params = params.require(:project).permit([:title, :description, :due_date])
+    project_params
     @project = Project.find params[:id]
     if @project.update(project_params)
        redirect_to project_path(@project), notice: "Your project has been updated"
@@ -51,6 +51,13 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to projects_path, notice: "Your Project has been removed!!"
   end
+
+  private
+
+  def project_params
+    project_params = params.require(:project).permit([:title, :description, :due_date])
+  end
+
 
 
 end
