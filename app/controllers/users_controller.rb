@@ -22,11 +22,28 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find params[:id]
-    user_params = params.require(:user).permit([:first_name, :last_nam, :email])
-    @user.update(user_params)
-    redirect_to root_path, notice: "Your informations have been updated!"
+    user_params = params.require(:user).permit([:first_name, :last_name, :email])
+    if @user.update(user_params)
+       redirect_to root_path, notice: "Your informations have been updated!"
+    else
+      render :edit
+    end
   end
 
+  def edit_password
+    @user = User.find params[:id]
+  end
+
+  def update_password
+    @user = User.find params[:id]
+    user_params = params.require(:user).permit([:current_password, :password, :password_confirmation])
+    if @user.authenticate(user_params[:current_password]) && @user.update(user_params)
+      redirect_to root_path, notice: "You have changed your password"
+    else
+      flash[:alert] = "make sure password is correct"
+      render :edit_password
+    end
+  end
 
 
 end

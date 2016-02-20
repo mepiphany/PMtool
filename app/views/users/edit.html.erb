@@ -1,5 +1,5 @@
 <h1>Update</h1>
-
+<%= @user.errors.full_messages.join(", ") %>
 <%= form_for @user do |f| %>
   <div>
     <%= f.label :first_name %>
@@ -13,7 +13,9 @@
     <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
-
     <%= f.submit  %>
-
 <% end %>
+
+<br>
+
+<%= link_to "Edit password", edit_password_path %>

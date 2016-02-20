@@ -35,9 +35,15 @@ end
 
 resources :users, only: [:new, :create, :edit, :update]
 
+
 resources :sessions, only: [:new, :create] do
   delete :destroy, on: :collection
 end
+
+get "users/:id/edit_password" => "users#edit_password", as: :edit_password
+patch "users/:id/update_password" => "users#update_password"
+
+
 
 
 

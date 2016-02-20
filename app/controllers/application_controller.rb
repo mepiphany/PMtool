@@ -9,34 +9,20 @@ rescue_from CanCan::AccessDenied do |exception|
   end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   def user_signed_in?
     session[:user_id].present?
   end
-  helper_method :user_signed_in?
+    helper_method :user_signed_in?
+
+
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if user_signed_in?
   end
-  helper_method :current_user
+    helper_method :current_user
 
 
   def authenticate_user!
     redirect_to new_session_path, notice: "please sign in" unless user_signed_in?
   end
-
 end
