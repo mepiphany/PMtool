@@ -3,6 +3,9 @@ class Project < ActiveRecord::Base
   has_many :discussions, dependent: :destroy
   belongs_to :user
 
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
+
   validates :title, presence: true,
                     uniqueness: true
 
@@ -10,5 +13,12 @@ class Project < ActiveRecord::Base
                                     maximum: 255
                                        }
   validates :due_date, presence: true
+
+
+
+  def favor_for(user)
+    favorites.find_by_user_id user
+  end
+
 
 end

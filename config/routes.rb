@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 resources :projects, only: [] do
   resources :tasks, only: [:new, :create, :update, :destroy]
     resources :discussions, only: [:new, :create, :show, :destroy, :update, :edit]
+    resources :favorites, only: [:create, :destroy]
 end
 
   # resources :discussions, only: [:update, :destroy]
@@ -43,39 +44,7 @@ end
 get "users/:id/edit_password" => "users#edit_password", as: :edit_password
 patch "users/:id/update_password" => "users#update_password"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+resources :favorites, only: [:index]
 
 
 

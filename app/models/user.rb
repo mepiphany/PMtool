@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
-
   has_secure_password
 
   attr_accessor :current_password
 
   has_many :projects, dependent: :nullify
+
+  has_many :favorites, dependent: :destroy
+  has_many :favored_projects, through: :favorites, source: :project
+
+
 
   validates :first_name, presence: true
 
@@ -27,6 +31,7 @@ class User < ActiveRecord::Base
  def full_name
   "#{first_name} #{last_name}".titleize #<<< this will capitalize everything inside your string
  end
+
 
  private
 

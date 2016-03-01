@@ -8,6 +8,15 @@
                         data: { confirm: "You Sure?" } %>
   <%= link_to "Add", new_project_path %>
 <br>
+<% favor = @project.favor_for(current_user) %>
+<% if favor %>
+<p><%= link_to "Remove Favorite", project_favorite_path(@project, favor), method: :delete  %></p>
+<% else  %>
+<p><%= link_to "Favorite", project_favorites_path(@project), method: :post %></p>
+<% end %>
+(<%= @project.favorites.count %>)
+
+<br>
 <hr>
   <h2>Add Discussions</h2>
   <%= render "discussion_form" %>

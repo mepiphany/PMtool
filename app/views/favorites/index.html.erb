@@ -1,0 +1,5 @@
+<h1>Favorite Projects</h1>
+<% @project.each do |project| %>
+<%= link_to project.title, project_path(project) %>
+<hr>
+<% end %>
