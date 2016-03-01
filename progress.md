@@ -1,3 +1,8 @@
 1. ability to favorite projects. Users can't favorite their own projects.
-   User can only favorite project ones.
-2. add a section for users to view their favorite projects.
+   User can only favorite project ones. (done)
+2. add a section for users to view their favorite projects.(done)
+3. AJAXIFY task creation & deletion
+    - Make creating tasks for projects use AJAX so that the page doesn't reload(d)
+    - Make marking a task as complete use AJAX
+    - Make deleting a task use AJAX
+    - Stretch, AJAXIFY task editing / Updating

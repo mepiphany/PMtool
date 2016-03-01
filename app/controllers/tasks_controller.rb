@@ -5,12 +5,19 @@ class TasksController < ApplicationController
   end
 
   def create
-    @project = Project.find params[:project_id]
     task_params = params.require(:task).permit(:title, :due_date)
+    @project = Project.find params[:project_id]
     @task = Task.new(task_params)
     @task.project = @project
-    @task.save
-    redirect_to project_path(@project)
+    respond_to do |format|
+    if @task.save
+       format.html {redirect_to project_path(@project), notice: "Task created!"}
+       format.js { render :successful_task }
+     else
+       format.html {redirect_to project_path(@project), alert: "Task is not created!"}
+       format.js { render :unsuccessful_task }
+     end
+   end
   end
 
   def update
@@ -27,10 +34,4 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to project_path(@project)
   end
-
-
-
-
-
-
 end

@@ -24,4 +24,14 @@
 <br>
 <hr>
 <h3>Add Tasks</h3>
-  <%= render "task_form" %>
+<div id="task-form">
+  <%= render "/tasks/task_form" %>
+</div>
+<h3>Incomplete</h3>
+<div class="incomplete-tasks">
+<% @project.tasks.where("status = false").each do |task| %>
+  <%= render "/tasks/task_incomplete", task: task %>
+<% end %>
+</div>
+
+<h3>complete</h3>

@@ -1,0 +1,8 @@
+  <p>Title: <%= task.title %></P>
+  <p>Due Date: <%= task.due_date.strftime("%Y-%b-%d") %></p>
+    <% if task.status == false %>
+      <%= button_to "Press to Complete", project_task_path(@project, task, {task: { status: true }}), method: :patch %></p>
+    <% else %>
+       <%= button_to "Press to Incomplete", project_task_path(@project, task, {task: { status: false }}), method: :patch %></p>
+    <% end %>
+      <%= button_to "Delete", project_task_path(@project, task), method: :delete %>

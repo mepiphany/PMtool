@@ -1,0 +1,5 @@
+$('.incomplete-tasks').prepend('<%= j render "task_incomplete", task: @task %>');
+
+<% @task = Task.new %>
+
+$('#task-form').html("<%= j render 'task_form' %>");
