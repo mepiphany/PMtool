@@ -20,5 +20,9 @@ class Project < ActiveRecord::Base
     favorites.find_by_user_id user
   end
 
+  def created_by?(current_user)
+    user.id == current_user.id
+  end
+
 
 end

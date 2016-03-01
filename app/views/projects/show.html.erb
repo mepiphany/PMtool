@@ -9,9 +9,10 @@
   <%= link_to "Add", new_project_path %>
 <br>
 <% favor = @project.favor_for(current_user) %>
+<% created_by = @project.created_by?(current_user) %>
 <% if favor %>
 <p><%= link_to "Remove Favorite", project_favorite_path(@project, favor), method: :delete  %></p>
-<% else  %>
+<% elsif !created_by %>
 <p><%= link_to "Favorite", project_favorites_path(@project), method: :post %></p>
 <% end %>
 (<%= @project.favorites.count %>)
