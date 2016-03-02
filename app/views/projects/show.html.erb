@@ -28,15 +28,15 @@
   <%= render "/tasks/task_form" %>
 </div>
 <h3>Incomplete</h3>
-<div class="incomplete-tasks">
-<% @project.tasks.where("status = false").each do |task| %>
-  <%= render "/tasks/task_incomplete", task: task %>
-<% end %>
+<div id="incomplete-tasks">
+  <% @project.tasks.where("status = false").each do |task| %>
+    <%= render "/tasks/incomplete", task: task %>
+  <% end %>
 </div>
 
 <h3>complete</h3>
-<div class="complete-tasks">
-<% @project.tasks.where("status = true").each do |task| %>
-  <%= render "/tasks/task_complete", task: task %>
-<% end %>
+<div id="complete-tasks">
+  <% @project.tasks.where("status = true").each do |task| %>
+    <%= render "/tasks/complete", task: task %>
+  <% end %>
 </div>

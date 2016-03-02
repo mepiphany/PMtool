@@ -25,7 +25,10 @@ class TasksController < ApplicationController
     @task = Task.find params[:id]
     mark_done_params = params.require(:task).permit(:status)
     @task.update mark_done_params
-    redirect_to project_path(@project)
+    respond_to do |format|
+      format.html {redirect_to project_path(@project)}
+      format.js { render }
+   end
   end
 
   def destroy

@@ -1,0 +1,7 @@
+<% if @task.status == true  %>
+  $("#<%= dom_id(@task) %>").remove();
+  $("#complete-tasks").append("<%= j render 'complete', task: @task %>");
+<% else %>
+  $("#<%= dom_id(@task) %>").remove();
+  $("#incomplete-tasks").append("<%= j render 'incomplete', task: @task %>");
+<% end %>

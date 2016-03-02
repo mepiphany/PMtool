@@ -1,0 +1,19 @@
+<div id="<%= dom_id(task) %>">
+  Title: <%= task.title %>
+  Due Date: <%= task.due_date.strftime("%Y-%b-%d") %>
+
+
+<% if task.status == false %>
+  <%= button_to "Press to Complete", project_task_path(@project, task,
+                                                      {task: { status: true }}),
+                                                      method: :patch,
+                                                      remote: true %></p>
+<% else %>
+   <%= button_to "Press to Incomplete", project_task_path(@project, task,
+                                                         {task: { status: false }}),
+                                                          method: :patch,
+                                                          remote: true %></p>
+<% end %>
+  <%= button_to "Delete", project_task_path(@project, task), method: :delete,
+                                                             remote: true %>
+</div>

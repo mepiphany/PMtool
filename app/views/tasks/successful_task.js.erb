@@ -1,4 +1,4 @@
-$('.incomplete-tasks').prepend('<%= j render "task_incomplete", task: @task %>');
+$('#incomplete-tasks').prepend('<%= j render "incomplete", task: @task %>');
 
 <% @task = Task.new %>
 
