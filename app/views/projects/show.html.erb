@@ -35,3 +35,8 @@
 </div>
 
 <h3>complete</h3>
+<div class="complete-tasks">
+<% @project.tasks.where("status = true").each do |task| %>
+  <%= render "/tasks/task_complete", task: task %>
+<% end %>
+</div>
