@@ -36,6 +36,9 @@ class CommentsController < ApplicationController
     @discussion = Discussion.find params[:discussion_id]
     @comment = Comment.find params[:id]
     @comment.destroy
-    redirect_to project_discussion_path(@discussion.project, @discussion)
+    respond_to do |format|
+    format.html { redirect_to project_discussion_path(@discussion.project, @discussion) }
+    format.js { render }
+   end
   end
 end
