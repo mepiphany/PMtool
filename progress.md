@@ -10,16 +10,18 @@
     - **Stretch, AJAXIFY task editing / Updating**
 
 # Assignment: [PM Tool] AJAXify comment creation & deletion
-1. Make creating comments for discussions use AJAX so that the page doesn't reload.
+1. Make creating comments for discussions use AJAX so that the page doesn't reload(*done*)
 2. Make deleting a comment use AJAX.
 3. [Bonus] AJAXify comment editing / Updating
 
 
-#Done things
+# Commit to Github
+
 1. discussion creation with using AJAX
   - implemented discussion_create.js.erb && discussion_not_create.js.erb(c)
   - error message on top of the discussion_new_form(c)
-2. created discussion show page
-  - added comment section, moved discussion to a separate action.
-3. deleting discussion using AJAX
-4.   
+2. created discussion show page(c)
+  - added comment section, moved discussion to a separate action.(c)
+3. deleting discussion using AJAX9(c)
+4. Make creating comments for discussions use AJAX so that the page doesn't reload
+5. Displaying error messages on top of the comment-form

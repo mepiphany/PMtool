@@ -9,8 +9,13 @@ class CommentsController < ApplicationController
     @discussion = Discussion.find params[:discussion_id]
     comments_params = params.require(:comment).permit([:body])
     @comment = @discussion.comments.new(comments_params)
-    if @comment.save
-      redirect_to project_discussion_path(@discussion.project, @discussion)
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to project_discussion_path(@discussion.project, @discussion) }
+        format.js { render :comment_successful }
+      else
+        format.js { render :comment_unsuccessful }
+      end
     end
   end
 
@@ -33,5 +38,4 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to project_discussion_path(@discussion.project, @discussion)
   end
-
 end

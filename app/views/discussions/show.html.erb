@@ -12,11 +12,11 @@
     <%= render "/comments/comment_form" %>
   </div>
 
+  <h3>Comments</h3>
+  
   <div id="comments">
-    <h1>Comments</h1>
-    <% @discussion.comments.each do |comment| %>
-      <%= render "/comments/comments", comment: comment %>
+    <% @discussion.comments.each do |com| %>
+      <%= render "/comments/comments", comment: com %>
     <% end %>
-
   </div>
 </div>

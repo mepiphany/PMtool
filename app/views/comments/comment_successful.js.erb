@@ -1,0 +1,5 @@
+$('#comments').append("<%= j render 'comments', comment: @comment %>");
+
+<% @comment = Comment.new %>
+
+$("#comment-form").html("<%= j render 'comment_form' %>");

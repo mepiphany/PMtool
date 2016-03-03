@@ -1,5 +1,6 @@
+<%= @comment.errors.full_messages.join(", ") %>
 <br>
-<%= form_for [@discussion, @comment] do |f| %>
+<%= form_for [@discussion, @comment], remote: true do |f| %>
   <div>
     <%= f.label :body  %>
     <%= f.text_area :body %>
