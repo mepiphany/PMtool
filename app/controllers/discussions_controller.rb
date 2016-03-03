@@ -36,15 +36,16 @@
   end
 
   def update
-
     @project = Project.find params[:project_id]
     discussion_params = params.require(:discussion).permit([:title, :body])
     @discussion = Discussion.find params[:id]
     @discussion.update(discussion_params)
     redirect_to project_path(@project)
-
   end
 
-
-
+  def show
+    @project = Project.find params[:project_id]
+    @discussion = Discussion.find params[:id]
+    @comment = Comment.new
+  end
 end

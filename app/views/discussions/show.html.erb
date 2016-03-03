@@ -1,0 +1,22 @@
+<div id="<%= dom_id(@discussion) %>">
+  <h1>Title: <%= @discussion.title %></h1>
+  <h2>body: <%= @discussion.body %></h2>
+  <%= button_to "Edit", edit_project_discussion_path(@project, @discussion),
+                                                     method: :get %>
+
+  <%= button_to "Delete", project_discussion_path(@project, @discussion),
+                                                  method: :delete,
+                                                  remote: true %>
+
+  <div id="comment-form">
+    <%= render "/comments/comment_form" %>
+  </div>
+
+  <div id="comments">
+    <h1>Comments</h1>
+    <% @discussion.comments.each do |comment| %>
+      <%= render "/comments/comments", comment: comment %>
+    <% end %>
+
+  </div>
+</div>

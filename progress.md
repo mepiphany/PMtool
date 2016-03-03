@@ -17,6 +17,9 @@
 
 #Done things
 1. discussion creation with using AJAX
-  - implemented discussion_create.js.erb && discussion_not_create.js.erb
-  - error message on top of the discussion_new_form
-2. deleting discussion using AJAX
+  - implemented discussion_create.js.erb && discussion_not_create.js.erb(c)
+  - error message on top of the discussion_new_form(c)
+2. created discussion show page
+  - added comment section, moved discussion to a separate action.
+3. deleting discussion using AJAX
+4.   

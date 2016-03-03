@@ -1,0 +1,4 @@
+<p><%= comment.body %></p>
+<%= link_to "Edit", edit_discussion_comment_path(@discussion, comment)  %>
+<%= button_to "Delete", discussion_comment_path(@discussion, comment), method: :delete %>
+<hr>

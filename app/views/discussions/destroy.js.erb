@@ -1,3 +1,4 @@
 $('#<%= dom_id(@discussion) %>').fadeOut(1000, function(){
   $(this).remove();
+  window.location.href="<%= project_path(@project) %>"
 });

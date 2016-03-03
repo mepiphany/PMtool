@@ -1,11 +1,4 @@
 <div id="<%= dom_id(discussion) %>">
-  <p>Title: <%= discussion.title %></p>
-  <p>Body: <%= discussion.body %></p>
-  <%= button_to "Edit", edit_project_discussion_path(@project, discussion),
-                                                     method: :get %>
-  <%= button_to "Delete", project_discussion_path(@project, discussion),
-                                                  method: :delete,
-                                                  remote: true %>
-  <%#= render partial: "/comments/comment_form", locals: { discussion: discussion } %>
-  <hr>
+  <p><%= link_to "Title: #{discussion.title}", project_discussion_path(@project, discussion)  %></p>
 </div>
+<hr>

@@ -2,15 +2,16 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def new
-
+    @discussion = Discussion.new
   end
 
   def create
     @discussion = Discussion.find params[:discussion_id]
     comments_params = params.require(:comment).permit([:body])
     @comment = @discussion.comments.new(comments_params)
-    @comment.save
-    redirect_to project_path(@discussion.project)
+    if @comment.save
+      redirect_to project_discussion_path(@discussion.project, @discussion)
+    end
   end
 
   def edit
@@ -30,8 +31,7 @@ class CommentsController < ApplicationController
     @discussion = Discussion.find params[:discussion_id]
     @comment = Comment.find params[:id]
     @comment.destroy
-    redirect_to project_path(@discussion.project)
-
+    redirect_to project_discussion_path(@discussion.project, @discussion)
   end
 
 end

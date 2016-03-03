@@ -6,11 +6,6 @@ Rails.application.routes.draw do
   get "/projects/:id/edit" => "projects#edit", as: :edit_project
   patch "/projects/:id" => "projects#update"
   delete "/projects/:id" => "projects#destroy"
-
-
-
-
-
 # get "/tasks/new" => "tasks#new", as: :new_task
 # post "/tasks" => "tasks#create", as: :tasks
 # get "/tasks" => "tasks#index"
@@ -18,9 +13,6 @@ Rails.application.routes.draw do
 # get "/tasks/:id/edit" => "tasks#edit", as: :edit_task
 # patch "tasks/:id" => "tasks#update"
 # delete "tasks/:id" => "tasks#destroy"
-
-
-
 resources :projects, only: [] do
   resources :tasks, only: [:new, :create, :update, :destroy]
     resources :discussions, only: [:new, :create, :show, :destroy, :update, :edit]
@@ -45,15 +37,8 @@ get "users/:id/edit_password" => "users#edit_password", as: :edit_password
 patch "users/:id/update_password" => "users#update_password"
 
 resources :favorites, only: [:index]
-
-
-
-
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
