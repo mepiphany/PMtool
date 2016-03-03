@@ -1,0 +1,5 @@
+$('#discussion').prepend("<%= j render 'discussion', discussion: @discussion %>");
+
+<% @discussion = Discussion.new %>
+
+$('#discussion-form').html('<%= j render "discussion_new_form" %>');

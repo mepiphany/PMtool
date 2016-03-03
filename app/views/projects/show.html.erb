@@ -20,13 +20,24 @@
 <br>
 <hr>
   <h2>Add Discussions</h2>
-  <%= render "discussion_form" %>
+  <div id="discussion-form">
+  <%= render "/discussions/discussion_new_form" %>
+</div>
+
 <br>
+<h2>Discussions</h2>
+<div id="discussion">
+<% @project.discussions.each do |discussion| %>
+  <%= render "/discussions/discussion", discussion: discussion %>
+<% end %>
+</div>
+
 <hr>
 <h3>Add Tasks</h3>
 <div id="task-form">
   <%= render "/tasks/task_form" %>
 </div>
+
 <h3>Incomplete</h3>
 <div id="incomplete-tasks">
   <% @project.tasks.where("status = false").each do |task| %>

@@ -9,15 +9,25 @@
       discussion_params = params.require(:discussion).permit([:title, :body])
     @discussion = Discussion.new(discussion_params)
     @discussion.project = @project
-    @discussion.save
-    redirect_to project_path(@project)
+    respond_to do |format|
+      if @discussion.save
+        format.html {redirect_to project_path(@project)}
+        format.js { render :discussion_create }
+      else
+        format.html {render "/projects/show"}
+        format.js { render :discussion_not_create}
+     end
+    end
   end
 
   def destroy
     @project = Project.find params[:project_id]
     @discussion = Discussion.find params[:id]
     @discussion.destroy
-    redirect_to project_path(@project)
+    respond_to do |format|
+      format.html { redirect_to project_path(@project) }
+      format.js { render }
+   end
   end
 
   def edit

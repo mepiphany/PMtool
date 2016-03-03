@@ -1,8 +1,22 @@
+# Assignment: [PM Tool] AJAXify task creation & deletion Skip Next Module
+
 1. ability to favorite projects. Users can't favorite their own projects.
-   User can only favorite project ones. (done)
-2. add a section for users to view their favorite projects.(done)
+   User can only favorite project ones. (*done*)
+2. add a section for users to view their favorite projects.(*done*)
 3. AJAXIFY task creation & deletion
-    - Make creating tasks for projects use AJAX so that the page doesn't reload(done)
-    - Make marking a task as complete use AJAX (done)
-    - Make deleting a task use AJAX(done)
-    - Stretch, AJAXIFY task editing / Updating
+    - Make creating tasks for projects use AJAX so that the page doesn't reload(*done*)
+    - Make marking a task as complete use AJAX (*done*)
+    - Make deleting a task use AJAX(*done*)
+    - **Stretch, AJAXIFY task editing / Updating**
+
+# Assignment: [PM Tool] AJAXify comment creation & deletion
+1. Make creating comments for discussions use AJAX so that the page doesn't reload.
+2. Make deleting a comment use AJAX.
+3. [Bonus] AJAXify comment editing / Updating
+
+
+#Done things
+1. discussion creation with using AJAX
+  - implemented discussion_create.js.erb && discussion_not_create.js.erb
+  - error message on top of the discussion_new_form
+2. deleting discussion using AJAX
