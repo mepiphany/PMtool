@@ -14,9 +14,16 @@
 2. Make deleting a comment use AJAX(*done*)
 3. **[Bonus] AJAXify comment editing / Updating**
 
+# Assignment: [PM Tool] Add Emailing 2016-March-04
+Add mailers to the following:
+
+1. Discussion owner when someone comments on the discussion (if it's not the same user)
+2. Task owner when someone completes the task (if it's not the same user)
+
 
 # Commit to Github
 
+2016-March-03
 1. discussion creation with using AJAX(*c*)
   - implemented discussion_create.js.erb && discussion_not_create.js.erb(*c*)
   - error message on top of the discussion_new_form(*c*)
@@ -25,4 +32,7 @@
 3. deleting discussion using AJAX9(*c*)
 4. Make creating comments for discussions use AJAX so that the page doesn't reload(*c*)
 5. Displaying error messages on top of the comment-form(*c*)
-6. Make deleting a comment use AJAX
+6. Make deleting a comment use AJAX(*c*)
+
+2016-March-04
+1. implement mailers and delayed-job

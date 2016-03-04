@@ -28,6 +28,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
  gem "cancancan"
 
+ gem 'delayed_job_active_record'
+ gem 'delayed_job_web'
+
+ gem 'letter_opener', :group => :development
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -52,4 +57,6 @@ group :development do
   gem 'spring'
 
   gem "pg"
+  gem "rails-erd"
+  
 end

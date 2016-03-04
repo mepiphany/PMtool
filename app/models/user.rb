@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :favored_projects, through: :favorites, source: :project
 
+  has_many :discussions, dependent: :nullify
+
+  has_many :tasks, dependent: :destroy
+
+  has_many :comments, dependent: :destroy
+
 
 
   validates :first_name, presence: true

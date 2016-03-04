@@ -9,6 +9,7 @@ class TasksController < ApplicationController
     @project = Project.find params[:project_id]
     @task = Task.new(task_params)
     @task.project = @project
+    @task.user = current_user
     respond_to do |format|
     if @task.save
        format.html {redirect_to project_path(@project), notice: "Task created!"}

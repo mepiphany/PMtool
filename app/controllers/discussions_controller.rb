@@ -9,6 +9,7 @@
       discussion_params = params.require(:discussion).permit([:title, :body])
     @discussion = Discussion.new(discussion_params)
     @discussion.project = @project
+    @discussion.user = current_user
     respond_to do |format|
       if @discussion.save
         format.html {redirect_to project_path(@project)}

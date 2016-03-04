@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301004545) do
+ActiveRecord::Schema.define(version: 20160304015303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20160301004545) do
     t.datetime "updated_at",    null: false
     t.integer  "discussion_id"
     t.text     "body"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["discussion_id"], name: "index_comments_on_discussion_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "discussions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,9 +33,11 @@ ActiveRecord::Schema.define(version: 20160301004545) do
     t.integer  "project_id"
     t.string   "title"
     t.text     "body"
+    t.integer  "user_id"
   end
 
   add_index "discussions", ["project_id"], name: "index_discussions_on_project_id", using: :btree
+  add_index "discussions", ["user_id"], name: "index_discussions_on_user_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -73,9 +77,11 @@ ActiveRecord::Schema.define(version: 20160301004545) do
     t.date     "due_date"
     t.integer  "project_id"
     t.boolean  "status",     default: false
+    t.integer  "user_id"
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -89,10 +95,13 @@ ActiveRecord::Schema.define(version: 20160301004545) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "comments", "discussions"
+  add_foreign_key "comments", "users"
   add_foreign_key "discussions", "projects"
+  add_foreign_key "discussions", "users"
   add_foreign_key "favorites", "projects"
   add_foreign_key "favorites", "users"
   add_foreign_key "ideas", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users"
 end

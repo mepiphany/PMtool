@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @discussion = Discussion.find params[:discussion_id]
     comments_params = params.require(:comment).permit([:body])
     @comment = @discussion.comments.new(comments_params)
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
         format.html { redirect_to project_discussion_path(@discussion.project, @discussion) }
