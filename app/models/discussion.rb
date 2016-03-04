@@ -10,4 +10,6 @@ class Discussion < ActiveRecord::Base
   validates :body, length: { minimum: 5,
                              maximum: 300 }
 
+
+
 end

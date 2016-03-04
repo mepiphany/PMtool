@@ -17,7 +17,7 @@
 # Assignment: [PM Tool] Add Emailing 2016-March-04
 Add mailers to the following:
 
-1. Discussion owner when someone comments on the discussion (if it's not the same user)
+1. Discussion owner when someone comments on the discussion (if it's not the same user)(*done*)
 2. Task owner when someone completes the task (if it's not the same user)
 
 
@@ -35,4 +35,6 @@ Add mailers to the following:
 6. Make deleting a comment use AJAX(*c*)
 
 2016-March-04
-1. implement mailers and delayed-job
+1. implement mailers for comments(*done*)
+  - need to implement not being able to to send email if it's the same user(*done*)
+2. implement mailer for task(*done*)

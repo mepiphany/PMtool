@@ -26,6 +26,9 @@ class TasksController < ApplicationController
     @task = Task.find params[:id]
     mark_done_params = params.require(:task).permit(:status)
     @task.update mark_done_params
+    if (@task.status == true)
+      AnswersMailer.notify_task_owner(@task).deliver_now
+    end
     respond_to do |format|
       format.html {redirect_to project_path(@project)}
       format.js { render }

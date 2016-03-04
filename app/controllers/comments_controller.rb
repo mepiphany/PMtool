@@ -12,6 +12,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
+           if @discussion.user != current_user
+              AnswersMailer.notify_discussion_owner(@comment).deliver_now
+           end
         format.html { redirect_to project_discussion_path(@discussion.project, @discussion) }
         format.js { render :comment_successful }
       else
