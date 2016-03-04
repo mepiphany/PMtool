@@ -45,16 +45,6 @@ ActiveRecord::Schema.define(version: 20160301004545) do
   add_index "favorites", ["project_id"], name: "index_favorites_on_project_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
-  create_table "ideas", force: :cascade do |t|
-    t.string   "title"
-    t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-  end
-
-  add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
-
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -92,7 +82,6 @@ ActiveRecord::Schema.define(version: 20160301004545) do
   add_foreign_key "discussions", "projects"
   add_foreign_key "favorites", "projects"
   add_foreign_key "favorites", "users"
-  add_foreign_key "ideas", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
 end
