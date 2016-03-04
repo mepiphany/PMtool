@@ -33,6 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
  gem 'letter_opener', :group => :development
 
+ gem "simple_form"
+ gem "bootstrap-sass"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -58,5 +61,5 @@ group :development do
 
   gem "pg"
   gem "rails-erd"
-  
+
 end

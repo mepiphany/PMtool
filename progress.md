@@ -18,7 +18,13 @@
 Add mailers to the following:
 
 1. Discussion owner when someone comments on the discussion (if it's not the same user)(*done*)
-2. Task owner when someone completes the task (if it's not the same user)
+2. Task owner when someone completes the task (if it's not the same user)(*done*)
+3. **Need to Work on the delayed_job_web**
+
+# Assignment: [PM Tool] Integrate SimpleForm
+
+1. Integrate SimpleForm with your PM Tool application and convert all of your forms to use SimpleForm.
+
 
 
 # Commit to Github
