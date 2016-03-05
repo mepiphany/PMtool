@@ -41,6 +41,6 @@ Add mailers to the following:
 6. Make deleting a comment use AJAX(*c*)
 
 2016-March-04
-1. implement mailers for comments(*done*)
-  - need to implement not being able to to send email if it's the same user(*done*)
-2. implement mailer for task(*done*)
+1. implement mailers for comments(*c*)
+  - need to implement not being able to to send email if it's the same user(*c*)
+2. implement mailer for task(*c*)
