@@ -2,6 +2,9 @@
 <p>Description: <%= @project.description %></p>
 <p>Due date: <%= @project.due_date %></p>
 <p>Created by: <%= @project.user.full_name %></p>
+<%= image_tag @project.image.url(:large) %>
+<br>
+  <%= link_to "File", @project.file.url, target: "_blank" %>
   <%= link_to "Edit", edit_project_path %>
   <%= link_to "Delete", project_path(@project),
                         method: :delete,
@@ -14,8 +17,8 @@
 <p><%= link_to "Remove Favorite", project_favorite_path(@project, favor), method: :delete  %></p>
 <% elsif !created_by %>
 <p><%= link_to "Favorite", project_favorites_path(@project), method: :post %></p>
-<% end %>
 (<%= @project.favorites.count %>)
+<% end %>
 
 <br>
 <hr>

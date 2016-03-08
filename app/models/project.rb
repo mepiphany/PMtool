@@ -6,6 +6,9 @@ class Project < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
 
+  mount_uploader :image, ImageUploader
+  mount_uploader :file, FileUploader
+
   validates :title, presence: true,
                     uniqueness: true
 

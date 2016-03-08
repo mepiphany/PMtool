@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def index
-    @project = current_user.favored_projects
+    @project = current_user.favored_projects if current_user
   end
 
   def create
