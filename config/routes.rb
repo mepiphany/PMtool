@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+
+
+
   get "/projects/new" => "projects#new", as: :new_project
   post "/projects" => "projects#create", as: :projects
   get "/projects/:id" => "projects#show", as: :project
